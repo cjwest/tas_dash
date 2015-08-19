@@ -12,9 +12,9 @@ include_once 'tas_dash.features.inc';
  */
 function tas_dash_wsclient_service_load($services) {
   //$credentials = variable_get('tas_dash_username') . ':' . variable_get('tas_dash_pass');
-  $services['tas_dash']->settings['curl options'][CURLOPT_USERPWD] = 'rmt_ctl:8765';
+  $services['tas_dash']->settings['curl options'][CURLOPT_USERPWD] = '';
   //$apipass = variable_get('pingdom_api_appkey');
-  $services['tas_dash']->settings['curl options'][CURLOPT_HTTPHEADER] = array('apipass:5875');
+  $services['tas_dash']->settings['curl options'][CURLOPT_HTTPHEADER] = array('');
 }
 
 function tas_dash_wsclient_version($info = 'version') {
@@ -26,7 +26,7 @@ function tas_dash_wsclient_version($info = 'version') {
 
 
 function tas_dash_wsclient_get_all_agents($op = 'get', $op2 = 'all_agents', $other_mode = 'url_encode_separator_|',
-                                          $apipass = '5875', $user = 'rmt_ctl', $pass = '8765') {
+                                          $apipass = '', $user = '', $pass = '') {
   $service = wsclient_service_load('tas');
   $result = $service->tas_get_all_agents($op, $op2, $other_mode, $apipass, $user, $pass);
   variable_set('tas_dash_all_tas_agents', $result);
